@@ -1,0 +1,12 @@
+def letra(var1):
+  if(usuario in "Ff"):
+    return("Feminino")
+  elif(usuario in "Mm"):
+    return("Masculino")
+  else:
+    return("sexo Inválido")
+
+usuario = input("digite F OU M para feminino e masculino: ")
+
+a = letra(usuario)
+print(a)
