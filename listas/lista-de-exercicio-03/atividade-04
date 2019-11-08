@@ -1,0 +1,27 @@
+with open ("amazon.csv") as arquivo:
+
+	acre_2015=(0)
+	ceara_2014=(0)
+	todos_anos=(0)
+	mato_grosso_2010=(0)
+
+	for linha in arquivo:
+		dados = linha.strip("\n").split(",")
+		n_queimadas = dados[3].replace(".","")
+
+		if ((dados[1] == '"Acre"')  and (int(dados[0]) == 2015)):			
+			acre_2015+=int(n_queimadas)
+		elif ((dados[1] == '"Ceara"') and (int(dados[0]) == 2014)):
+			ceara_2014+=int(n_queimadas)
+		elif (dados[1] == '"Amazonas"'):
+			todos_anos+=int(n_queimadas)
+		if (dados[0] == '"year"'):
+			continue
+		elif ((int(dados[0])>=2010) and (dados[1] == '"Mato Grosso"')):
+			mato_grosso_2010+=int(n_queimadas)
+		
+print("NÚMERO DE QUEIMADAS")
+print ("Acre, 2015 : {}".format(acre_2015))
+print ("Ceará, 2014: {}".format(ceara_2014))
+print ("Todo o país: {}".format(todos_anos))
+print ("Mato Grosso do Sul, 2010: {}".format(mato_grosso_2010))
